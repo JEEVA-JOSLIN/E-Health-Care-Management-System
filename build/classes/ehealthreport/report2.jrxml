@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="425" pageHeight="566" columnWidth="385" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1631c7b1-0f2a-4934-b8da-dc1832c99ca5">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="invo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+    pharmacysales.`sales_id` AS pharmacysales_id,
+    pharmacysales.`sales_id` AS pharmacysales_sales_id,
+    pharmacysales.`medicine` AS pharmacysales_medicine,
+    pharmacysales.`qty` AS pharmacysales_qty,
+    pharmacysales.`price` AS pharmacysales_price,
+    pharmacysales.`total` AS pharmacysales_total,
+    pharma.`id` AS pharma_id,
+    pharma.`subtotal` AS pharma_subtotal,
+    pharma.`pay` AS pharma_pay,
+    pharma.`balance` AS pharma_balance
+
+FROM 
+    `pharmacysales` pharmacysales INNER JOIN `pharma` pharma ON pharmacysales.`sales_id`=pharma.`id` WHERE pharma.`id`=$P{invo}]]>
+	</queryString>
+	<field name="pharmacysales_id" class="java.lang.Integer"/>
+	<field name="pharmacysales_sales_id" class="java.lang.Integer"/>
+	<field name="pharmacysales_medicine" class="java.lang.String"/>
+	<field name="pharmacysales_qty" class="java.lang.Integer"/>
+	<field name="pharmacysales_price" class="java.lang.Integer"/>
+	<field name="pharmacysales_total" class="java.lang.Integer"/>
+	<field name="pharma_id" class="java.lang.Integer"/>
+	<field name="pharma_subtotal" class="java.lang.Integer"/>
+	<field name="pharma_pay" class="java.lang.Integer"/>
+	<field name="pharma_balance" class="java.lang.Integer"/>
+	<group name="pharma">
+		<groupFooter>
+			<band height="50">
+				<staticText>
+					<reportElement x="84" y="30" width="212" height="20" uuid="7be69c2c-d717-46ae-861b-6b28c0cf331f"/>
+					<textElement>
+						<font fontName="Cooper Black"/>
+					</textElement>
+					<text><![CDATA[!!!!THANK YOU FOR PURCHASING!!!!]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="59" width="100" height="20" uuid="5400f5b3-28e4-4cc0-b1a4-aba5f82a2420"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ INVOICE NO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="0" width="156" height="48" uuid="8d689b65-5ba9-4e6b-81b4-568bb134aae8"/>
+				<textElement>
+					<font fontName="Algerian" size="24"/>
+				</textElement>
+				<text><![CDATA[E-PHARMACY]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="108" y="59" width="100" height="20" uuid="d78a1449-65de-444c-bc61-dd52efe9e6af"/>
+				<textFieldExpression><![CDATA[$F{pharmacysales_sales_id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="6" y="15" width="100" height="20" uuid="85830a74-8b5d-4953-99f9-700c4d310cfa"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MEDICINE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="15" width="65" height="20" uuid="6afe3835-cd2e-42b1-b6e2-13079dbaab20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[QUANTITY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="15" width="66" height="20" uuid="fcb91783-e36f-4f66-bcf5-4cdb6b2dfa9d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="15" width="100" height="20" uuid="ee50adac-9cb5-4593-8fae-c45d9acd30c4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement x="6" y="18" width="78" height="20" uuid="577b2c69-5594-4e95-8890-8e11c5cf2b3a"/>
+				<textFieldExpression><![CDATA[$F{pharmacysales_medicine}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="18" width="69" height="20" uuid="13f4129b-6cb8-4d13-af6d-11f5f9bb3ce3"/>
+				<textFieldExpression><![CDATA[$F{pharmacysales_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="196" y="18" width="66" height="20" uuid="5b14187b-3fe4-47ff-b37e-5e35e94b76a7"/>
+				<textFieldExpression><![CDATA[$F{pharmacysales_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="285" y="18" width="100" height="20" uuid="62434204-e418-4096-b1dd-192c9e593398"/>
+				<textFieldExpression><![CDATA[$F{pharmacysales_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="285" y="16" width="100" height="20" uuid="c25d433f-a31e-489b-bf2a-2dac833dc98d"/>
+				<textFieldExpression><![CDATA[$F{pharma_subtotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="50" width="100" height="20" uuid="27911f78-ba58-43e1-98e9-0427697e272c"/>
+				<textFieldExpression><![CDATA[$F{pharma_pay}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="285" y="83" width="100" height="20" uuid="097ed277-f36c-45bc-b5d5-968b647341c2"/>
+				<textFieldExpression><![CDATA[$F{pharma_balance}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="196" y="16" width="100" height="20" uuid="8a1853b4-1f55-4cfa-873d-eec415337a8f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AMOUNT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="50" width="100" height="20" uuid="bb5da94d-1b8f-4e76-8fb7-a00e82f4fdcd"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PAY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="83" width="100" height="20" uuid="50dcc583-cb21-4ae8-b9e6-415410f76ae1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[BALANCE]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="285" pageHeight="651" columnWidth="245" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c0dcd45e-42af-4d81-8e2e-b25a03238d5e">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from pharmacysales;
+SELECT * from pharma;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sales_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="medicine" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="qty" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="price" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="43" y="26" width="137" height="17" uuid="16fcf19b-a2a4-475e-a2ef-2296a2acf7b4"/>
+				<text><![CDATA[E-HEALTH CARE SERVICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="59" width="100" height="20" uuid="463ab85e-b360-4ec3-9c96-4618fc4940da"/>
+				<text><![CDATA[MEDICINE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="69" y="59" width="100" height="20" uuid="26dc7273-0560-4043-9b4f-f22f1a1556ee"/>
+				<text><![CDATA[QUANTITY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="59" width="100" height="20" uuid="558838f3-d323-4604-b100-429af2654d8e"/>
+				<text><![CDATA[PRICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="59" width="100" height="20" uuid="02ee94cb-b3af-406a-b6f5-fa4df7c23651"/>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="f63282bb-9b99-4149-a013-12b3790367b3"/>
+				<textFieldExpression><![CDATA[$F{medicine}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="69" y="0" width="100" height="20" uuid="cbc4d25f-346d-49bf-9f79-520f94b70b44"/>
+				<textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="0" width="100" height="20" uuid="7ba9ae38-54cc-4ae9-9eed-303300ef960b"/>
+				<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="0" width="43" height="20" uuid="225a4864-ebe0-4cb6-8a89-75f7368ae9fc"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="20" width="245" height="1" uuid="c786e0c6-e384-4235-9c2e-c19d8054a77b"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
